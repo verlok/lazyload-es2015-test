@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/verlok/lazyload-es2015-test/issues"
   },
-  "homepage": "https://github.com/verlok/lazyload-es2015-test#readme"
+  "homepage": "https://github.com/verlok/lazyload-es2015-test#readme",
+  "dependencies": {
+    "vanilla-lazyload": "^8.14.0"
+  }
 }
