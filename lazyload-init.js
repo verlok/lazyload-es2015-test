@@ -1,7 +1,5 @@
 import LazyLoad from "./node_modules/vanilla-lazyload/dist/lazyload.es2015.js";
 
-var lazyLoadInstance;
-
 function logEvent(eventName, element) {
 	console.log(
 		Date.now(),
@@ -31,7 +29,7 @@ var lazyLoadOptions = {
 };
 
 var createLazyLoadInstance = () => {
-	lazyLoadInstance = new LazyLoad(lazyLoadOptions);
+	window.gLazyLoad = new LazyLoad(lazyLoadOptions);
 };
 
 document.addEventListener("DOMContentLoaded", createLazyLoadInstance);
