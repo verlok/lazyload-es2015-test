@@ -17,6 +17,6 @@
 	},
 	"homepage": "https://github.com/verlok/lazyload-es2015-test#readme",
 	"dependencies": {
-		"vanilla-lazyload": "^8.15.2"
+		"vanilla-lazyload": "^11.0.0"
 	}
 }

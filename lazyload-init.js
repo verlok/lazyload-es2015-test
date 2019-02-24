@@ -1,30 +1,31 @@
 import LazyLoad from "./node_modules/vanilla-lazyload/dist/lazyload.es2015.js";
 
-function logEvent(eventName, element) {
-	console.log(
-		Date.now(),
-		eventName,
-		element.getAttribute("data-src"),
-		element.getAttribute("src")
-	);
+function logElementEvent(eventName, element) {
+	console.log(Date.now(), eventName, element.getAttribute("data-src"));
 }
 
 var lazyLoadOptions = {
 	elements_selector: ".lazy",
-	to_webp: true,
 
-	callback_enter: element => {
-		logEvent("ENTERED", element);
+	callback_enter: function(element) {
+		logElementEvent("--> ENTERED", element);
 	},
-	callback_load: element => {
-		logEvent("LOADED", element);
+	callback_exit: function(element) {
+		logElementEvent("<-- EXITED", element);
 	},
-	callback_set: element => {
-		logEvent("SET", element);
+	callback_reveal: function(element) {
+		logElementEvent("-o- REVEALED", element);
 	},
-	callback_error: element => {
-		logEvent("ERROR", element);
-		element.src = "https://placehold.it/220x280?text=Placeholder";
+	callback_loaded: function(element) {
+		logElementEvent("-O- LOADED", element);
+	},
+	callback_error: function(element) {
+		logElementEvent("::: ERROR", element);
+		element.src =
+			"https://placeholdit.imgix.net/~text?txtsize=21&txt=Fallback%20image&w=220&h=280";
+	},
+	callback_finish: function() {
+		logElementEvent("\\o/ FINISHED", document.documentElement);
 	}
 };
 
